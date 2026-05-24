@@ -1,0 +1,489 @@
+{% extends "base.html" %}
+
+{% block title %}Teeth Whitening - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
+
+{% block content %}
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.side-effect-card {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.side-effect-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.maintenance-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.maintenance-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge text-white bg-transparent mb-3">COSMETIC DENTISTRY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Teeth Whitening or Bleaching</h1>
+                    <h2 class="h3 mb-4 text-white-50">Professional Cosmetic Dental Treatment</h2>
+                    <p class="lead mb-4 text-white-50">Professional teeth whitening is one of the safest, fastest, and most effective ways to enhance your appearance and restore your natural radiance.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="/static/images/th.jpg" alt="Teeth Whitening" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Minutes Duration</div>
+                <div class="stat-number">30-60</div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Results Last</div>
+                <div class="stat-number">6-24 Months</div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Treatment Sessions</div>
+                <div class="stat-number">1-3</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is Teeth Whitening -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">What is Teeth Whitening or Bleaching?</h2>
+                <p class="lead text-muted">Understanding the most popular cosmetic dental treatment</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Teeth whitening</strong> (also called bleaching) is a cosmetic dental procedure that lightens the color of your teeth by removing stains and discoloration.</p>
+            <p>Professional teeth whitening is one of the <strong>safest, fastest, and most effective</strong> ways to enhance your appearance and restore your natural radiance.</p>
+            <p>The procedure involves applying a bleaching agent directly to the teeth, breaking down stain molecules to reveal a whiter, brighter smile underneath. Whether you choose in-office treatment or a take-home kit, professional supervision ensures optimal results with minimal risk.</p>
+        </div>
+        <div class="col-lg-6">
+            <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+                <h4 class="fw-bold mb-3"><i class="fas fa-lightbulb text-warning me-2"></i>Key Benefits at a Glance</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Instant Results</strong> — Noticeable improvement in just one session</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Safe Professional Application</strong> — Performed under expert supervision</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Minimally Invasive</strong> — No drilling or needles required</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Boosts Confidence</strong> — A brighter smile enhances your overall appearance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How it is done -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How It Is Done</h2>
+                <p class="lead text-muted">Understanding the teeth whitening process</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="procedure-step">
+                <h5><i class="fas fa-flask me-2"></i>Professional In-Office Treatment</h5>
+                <p class="text-muted mb-0">Teeth whitening is done by applying a gel which consists of <strong>hydrogen peroxide</strong> or <strong>carbamide peroxide</strong> to break down stains on enamel. Professional in-office treatments use high-concentration gels and specialized lights to achieve fast, significant results in <strong>30–60 minutes</strong>.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="procedure-step">
+                <h5><i class="fas fa-home me-2"></i>Take-Home Kits</h5>
+                <p class="text-muted mb-0">Take-home kits, including custom trays or whitening strips, use lower-strength gels over several weeks for similar results. Your dentist creates custom-fitted trays for even gel distribution and optimal results.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Why Choose Professional Whitening -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Why Choose Professional Whitening?</h2>
+                <p class="lead text-muted">While over-the-counter products may seem convenient, professional whitening offers clear advantages</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h4>Faster Results</h4>
+                <p class="text-muted">Noticeably whiter teeth in just one session or in few cases procedure has to be repeated.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Safer Application</h4>
+                <p class="text-muted">Performed under expert supervision to protect gums and enamel throughout the procedure.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Long-Lasting Effects</h4>
+                <p class="text-muted">Results can last months to years with proper care and maintenance routine.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How to Maintain Your Bright Smile -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How to Maintain Your Bright Smile</h2>
+                <p class="lead text-muted">Keep your results glowing longer with simple habits</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="maintenance-item">
+                <h5><i class="fas fa-toothbrush text-primary me-2"></i>Brush and Floss Regularly</h5>
+                <p class="text-muted mb-0">Maintain excellent oral hygiene by brushing twice daily and flossing at least once a day to prevent new stains from forming.</p>
+            </div>
+            <div class="maintenance-item">
+                <h5><i class="fas fa-utensils text-primary me-2"></i>Limit Stain-Causing Foods and Drinks</h5>
+                <p class="text-muted mb-0">Avoid or limit consumption of coffee, tea, cold drinks, and other dark beverages that can stain your teeth.</p>
+            </div>
+            <div class="maintenance-item">
+                <h5><i class="fas fa-smoking-ban text-primary me-2"></i>Avoid Smoking and Tobacco Products</h5>
+                <p class="text-muted mb-0">Tobacco products are a leading cause of tooth discoloration. Quitting helps maintain your whitening results and improves overall health.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="maintenance-item">
+                <h5><i class="fas fa-tint text-primary me-2"></i>Rinse After Dark Beverages</h5>
+                <p class="text-muted mb-0">Rinse your mouth with water after consuming dark beverages to minimize staining and wash away residue.</p>
+            </div>
+            <div class="maintenance-item">
+                <h5><i class="fas fa-calendar-check text-primary me-2"></i>Schedule Routine Dental Cleanings</h5>
+                <p class="text-muted mb-0">Regular professional cleanings every 6 months help maintain your whitening results and keep your smile bright.</p>
+            </div>
+            <div class="maintenance-item">
+                <h5><i class="fas fa-strawberry text-primary me-2"></i>Use a Straw for Dark Drinks</h5>
+                <p class="text-muted mb-0">When consuming staining beverages, using a straw minimizes contact with your front teeth, reducing stain buildup.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Side Effects -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Side Effects of Teeth Whitening</h2>
+                <p class="lead text-muted">Understanding potential temporary effects of treatment</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="side-effect-card">
+                <h5><i class="fas fa-bolt text-warning me-2"></i>Tooth Sensitivity</h5>
+                <p class="text-muted mb-0">Often described as <strong>"zingers"</strong> or sharp pain, this is the most common side effect, usually peaking early in treatment and subsiding within a few days.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="side-effect-card">
+                <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Gingival Irritation (Gum Irritation)</h5>
+                <p class="text-muted mb-0">Occurs when the whitening agent (hydrogen peroxide) touches the gum tissue, leading to temporary inflammation or whitening of the tissue.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="side-effect-card">
+                <h5><i class="fas fa-fire text-warning me-2"></i>Chemical Burns</h5>
+                <p class="text-muted mb-0">Incidence is low but can occur in office procedures, causing soft tissue burns if they leak past protective barriers.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="side-effect-card">
+                <h5><i class="fas fa-undo text-warning me-2"></i>Rebound Effect</h5>
+                <p class="text-muted mb-0">Teeth may temporarily lose some of the bleached effect within 30 days of treatment. This is normal and follow-up sessions can maintain results.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="side-effect-card">
+                <h5><i class="fas fa-palette text-warning me-2"></i>Uneven Results</h5>
+                <p class="text-muted mb-0">Crowns, fillings, and veneers do not change color, which can create an uneven <strong>"rainbow effect"</strong>. Your dentist will discuss this before treatment.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions (FAQs)</h2>
+                <p class="lead text-muted">Everything you need to know about teeth whitening</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is teeth whitening safe?
+                        </button>
+                        <div class="faq-answer">
+                            Teeth whitening is generally safe and effective for enhancing smile brightness when using <strong>ADA-approved products</strong> or professional dentist treatments.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long do the results last?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Results can last anywhere from <strong>6 months to 2 years</strong>, depending on your lifestyle, diet, and oral hygiene habits.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will it cause sensitivity?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Some patients may experience temporary sensitivity, especially with stronger treatments like laser whitening. This usually subsides within a few days and can be managed with desensitizing products.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I eat or drink normally after whitening?
+                        </button>
+                        <div class="faq-answer d-none">
+                            It's best to avoid staining foods and drinks (like coffee, tea, red wine, and tobacco) for at least <strong>24–48 hours</strong> after treatment to maintain optimal results.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Does whitening damage enamel?
+                        </button>
+                        <div class="faq-answer d-none">
+                            No. Professional whitening does not damage enamel when done correctly. It works by breaking down stain molecules, not by removing the tooth surface.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            What is the difference between laser and non-laser whitening?
+                        </button>
+                        <div class="faq-answer d-none">
+                            <strong>Laser whitening</strong> uses a light or laser to accelerate the bleaching process, giving instant results in one session.<br>
+                            <strong>Non-laser whitening</strong> works more gradually without light activation but can achieve similar final results over time.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Who is not a good candidate for teeth whitening?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Whitening may not be suitable for:
+                            <ul class="mt-2 mb-0">
+                                <li>Pregnant or breastfeeding women</li>
+                                <li>People with gum disease or untreated cavities</li>
+                                <li>Individuals with crowns, veneers, or fillings (these won't whiten)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Start Your Whitening Journey Today</h2>
+                    <p class="lead mb-4">Whether you choose fast-track brilliance or gradual brightening, achieving a whiter smile has never been easier—or safer.</p>
+                    <p class="mb-4">Book your consultation and let your smile shine brighter than ever.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

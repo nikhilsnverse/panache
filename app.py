@@ -94,6 +94,11 @@ def teeth_cleaning():
     """Render the teeth cleaning page"""
     return render_template('teeth_cleaning.html')
 
+@app.route('/teeth-whitening')
+def teeth_whitening():
+    """Render the teeth whitening page"""
+    return render_template('teethwhitening.html')
+
 @app.route('/extraction')
 def extraction():
     """Render the extraction page"""
@@ -198,6 +203,7 @@ def sitemap():
         {'loc': 'https://www.panachedental.co.in/rct', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/crown-bridges', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/teeth-cleaning', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/teeth-whitening', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/extraction', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/composite-restoration', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/digital-dentistry', 'priority': '0.7', 'changefreq': 'monthly'},
