@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    font-family: 'Quantico', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-charcoal);
     background: url('../images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -33,7 +33,7 @@ body::before {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lobster Two', cursive;
+    font-family: Georgia, 'Times New Roman', serif;
     background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .accordion-button {
-    font-family: 'Quantico', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
     background: none !important;
     -webkit-text-fill-color: #333333 !important;
     color: #333333 !important;
