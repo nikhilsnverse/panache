@@ -259,7 +259,7 @@ def book_appointment():
 
     except Exception as e:
         print(f"Booking error: {e}")
-        return jsonify({'success': False, 'message': 'Error booking appointment. Please try again.'}), 400
+        return jsonify({'success': False, 'message': f'Error booking appointment: {str(e)}'}), 400
 
 @app.route('/send-message', methods=['POST'])
 def send_message():
@@ -283,7 +283,7 @@ def send_message():
 
     except Exception as e:
         print(f"Message error: {e}")
-        return jsonify({'success': False, 'message': 'Error sending message. Please try again.'}), 400
+        return jsonify({'success': False, 'message': f'Error sending message: {str(e)}'}), 400
 
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():

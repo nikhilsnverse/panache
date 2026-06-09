@@ -11,7 +11,7 @@ print(f"DEBUG db.py: DATABASE_URL is {'SET' if DATABASE_URL else 'NOT SET'}")
 def get_connection():
     if not DATABASE_URL:
         raise Exception("DATABASE_URL not found in environment variables")
-    return psycopg2.connect(DATABASE_URL, sslmode='require')
+    return psycopg2.connect(DATABASE_URL)
 
 def query(sql, params=None, fetch=True):
     conn = get_connection()
